@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#1A3A5C"/>
+  <rect x="0" y="0" width="400" height="400" fill="#fff" opacity="0.05"/>
+  <ellipse cx="200" cy="230" rx="100" ry="45" fill="#4A90D9" opacity="0.5"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="20" fill="#fff" text-transform="capitalize">luxury spa</text>
+</svg>

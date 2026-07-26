@@ -1,0 +1,191 @@
+      <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+      <section class="hero hero--dark" id="home">
+        <div class="hero__bg">
+          <img src="/demo/images/hero-bg.svg" alt="" />
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="container-fluid hero__inner">
+
+          <!-- ===== DESKTOP LAYOUT (hidden on mobile) ===== -->
+          <div class="row align-items-start gx-2 hero-desktop-layout">
+
+            <!-- Left Content -->
+            <div class="col-md-8 col-12">
+              <div class="hero__content">
+
+                <div class="hero__logo">
+                  <a href="/">
+                    <div class="logo" style="background-image: url('/demo/images/logo.png');"></div>
+                  </a>
+                </div>
+
+                <h1 class="hero__title">
+                  Traverse City's <span class="text-accent">Hot Tub</span> Experts
+                </h1>
+
+                <p class="hero__subtitle">
+                  Family-owned and serving Northern Michigan with premium new and used hot tub sales,
+                  professional service and repair. Your relaxation is our business.
+                </p>
+
+              </div>
+            </div>
+
+            <!-- Right Form -->
+            <div class="col-md-4 col-12 mt-4 mt-md-0">
+                <div class="form-container mt-5" id="contact">
+                  <div class="appointment-card p-4">
+                  <h3 class="fw-bold mb-2 text-white">Get Your Free Consultation</h3>
+                  <p class="mb-4" style="font-size: 0.95rem; color: rgba(255,255,255,0.85);">Fill out the form and we'll help you find the perfect hot tub.</p>
+                  <form id="appointmentForm" action="/api/send-enquiry" method="POST">
+                    <div class="row g-2">
+                      <div class="col-6">
+                        <input class="form-control rounded-input" placeholder="First Name *" aria-label="First Name" name="firstName" required />
+                      </div>
+                      <div class="col-6">
+                        <input class="form-control rounded-input" placeholder="Last Name *" aria-label="Last Name" name="lastName" required />
+                      </div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                      <div class="col-6">
+                        <input class="form-control rounded-input" placeholder="Phone Number *" aria-label="Phone Number" name="phone" type="tel" required />
+                      </div>
+                      <div class="col-6">
+                        <input type="email" class="form-control rounded-input" placeholder="Email Address *" aria-label="Email Address" name="email" required />
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      <input class="form-control rounded-input" placeholder="Zip Code *" aria-label="Zip Code" name="zip" required />
+                    </div>
+                    <div class="mt-2">
+                      <select class="form-select rounded-input" aria-label="How Did You Hear About Us?" name="referral">
+                        <option value="" selected disabled>How Did You Hear About Us?</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="google-search">Google Search</option>
+                        <option value="google-ad">Google Ad</option>
+                        <option value="referral">Referral</option>
+                        <option value="nextdoor">Nextdoor</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="mt-2">
+                      <textarea class="form-control rounded-input" rows="4" placeholder="Interested in?" aria-label="Interested in?" name="message"></textarea>
+                    </div>
+
+                    <div class="mt-3">
+                      <button type="submit" class="btn w-100 fw-bold py-3 btn-cta" style="color: #000; font-size: 1rem;">SEND MESSAGE</button>
+                    </div>
+                  </form>
+                  <div class="text-center mt-3" style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.7);">
+                    <i class="bi bi-lock-fill me-1"></i> Your information is secure and will never be shared.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ===== MOBILE LAYOUT (hidden on desktop) ===== -->
+          <div class="hero-mobile-layout">
+
+            <!-- Hero Image -->
+            <img src="/demo/images/hero-bg.svg"
+              class="hero-mobile-img"
+              alt="Hot Tub Solutions" />
+
+            <!-- Text Content -->
+            <div class="hero-mobile-content">
+              <h1 class="hero-mobile-title">
+                Let's Talk About<br>Your <em class="text-accent">Hot Tub.</em>
+              </h1>
+
+              <p class="hero-mobile-desc">
+                Whether you're looking to buy new or used, or need expert service and repair,
+                we're here to help. Reach out today and we'll get back to you soon.
+              </p>
+
+              <div class="hero-mobile-ctas">
+                <a href="tel:12313138117" class="btn-mobile-call">
+                  <i class="bi bi-telephone-fill"></i> CALL NOW (231) 313-8117
+                </a>
+                <a href="#mobile-estimate-form" class="btn-mobile-estimate">
+                  <i class="bi bi-envelope-fill"></i> REQUEST A CONSULTATION
+                </a>
+              </div>
+            </div>
+
+            <!-- Estimate Form -->
+            <div class="hero-mobile-form-section" id="mobile-estimate-form">
+              <div class="hero-mobile-form-card">
+                <h3 class="fw-bold mb-1">Get Your <span class="text-accent">Free Consultation</span></h3>
+                <form id="mobileAppointmentForm" action="/api/send-enquiry" method="POST">
+                  <div class="row g-3 mt-2">
+                    <div class="col-6">
+                      <input class="form-control rounded-input py-2" placeholder="First Name *" aria-label="First Name" name="firstName" required />
+                    </div>
+                    <div class="col-6">
+                      <input class="form-control rounded-input py-2" placeholder="Last Name *" aria-label="Last Name" name="lastName" required />
+                    </div>
+                  </div>
+                  <div class="row g-3 mt-1">
+                    <div class="col-6">
+                      <input class="form-control rounded-input py-2" placeholder="Phone Number *" aria-label="Phone Number" name="phone" type="tel" required />
+                    </div>
+                    <div class="col-6">
+                      <input type="email" class="form-control rounded-input py-2" placeholder="Email Address *" aria-label="Email Address" name="email" required />
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <input class="form-control rounded-input py-2" placeholder="Zip Code *" aria-label="Zip Code" name="zip" required />
+                  </div>
+                  <div class="mt-3">
+                    <select class="form-select rounded-input py-2" aria-label="How Did You Hear About Us?" name="referral">
+                      <option value="" selected disabled>How Did You Hear About Us?</option>
+                      <option value="facebook">Facebook</option>
+                      <option value="google-search">Google Search</option>
+                      <option value="google-ad">Google Ad</option>
+                      <option value="referral">Referral</option>
+                      <option value="nextdoor">Nextdoor</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="mt-3">
+                    <textarea class="form-control rounded-input py-2" rows="3" placeholder="Interested in?" aria-label="Interested in?" name="message"></textarea>
+                  </div>
+
+                  <div class="mt-4">
+                    <button type="submit" class="btn w-100 fw-bold py-3 btn-mobile-submit">SEND MESSAGE</button>
+                  </div>
+                </form>
+                <div class="text-center mt-3 text-muted" style="font-size: 0.8rem;">
+                  <i class="bi bi-lock-fill me-1"></i> Your information is secure and will never be shared.
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="hero-mobile-info-bar">
+              <div class="info-card-mobile">
+                <div class="info-card-icon"><i class="bi bi-telephone-fill"></i></div>
+                <h6>Call Us</h6>
+                <p>(231) 313-8117</p>
+                <a href="tel:12313138117" class="info-card-arrow">&rsaquo;</a>
+              </div>
+              <div class="info-card-mobile">
+                <div class="info-card-icon"><i class="bi bi-envelope-fill"></i></div>
+                <h6>Email Us</h6>
+                <p>info@hottub<br>solutions.com</p>
+                <a href="mailto:info@hottubsolutions.com" class="info-card-arrow">&rsaquo;</a>
+              </div>
+              <div class="info-card-mobile">
+                <div class="info-card-icon"><i class="bi bi-clock-fill"></i></div>
+                <h6>Business Hours</h6>
+                <p>Mon – Fri: 9AM – 6PM<br>Saturday: 10AM – 4PM<br>Sunday: Closed</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>

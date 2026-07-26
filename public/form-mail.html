@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    .email-wrapper { max-width: 600px; margin: 0 auto; background: #fff; }
+    .header { background: #1A3A5C; color: #fff; padding: 24px 32px; }
+    .header h1 { margin: 0; font-size: 20px; }
+    .body { padding: 32px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+    .label { font-weight: 700; color: #555; width: 40%; }
+    .value { color: #222; }
+    .footer { padding: 24px 32px; font-size: 12px; color: #888; text-align: center; border-top: 1px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="header">
+      <h1>New Enquiry Received</h1>
+    </div>
+    <div class="body">
+      <table>
+        <tr><td class="label">{{label_firstName}}</td><td class="value">{{value_firstName}}</td></tr>
+        <tr><td class="label">{{label_lastName}}</td><td class="value">{{value_lastName}}</td></tr>
+        <tr><td class="label">{{label_phone}}</td><td class="value">{{value_phone}}</td></tr>
+        <tr><td class="label">{{label_email}}</td><td class="value">{{value_email}}</td></tr>
+        <tr><td class="label">{{label_zip}}</td><td class="value">{{value_zip}}</td></tr>
+        <tr><td class="label">{{label_referral}}</td><td class="value">{{value_referral}}</td></tr>
+        <tr><td class="label">{{label_appointment}}</td><td class="value">{{value_appointment}}</td></tr>
+        <tr><td class="label">{{label_message}}</td><td class="value">{{value_message}}</td></tr>
+      </table>
+    </div>
+    <div class="footer">
+      This enquiry was submitted via the Hot Tub Solutions website.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "hottubsolutions",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node public/build.js",
+    "server": "node server.js",
+    "start": "npm run build && (node server.js & browser-sync start --proxy 'localhost:3001' --files 'public/**/*.html, public/**/*.css, public/**/*.js' --port 3000 --no-open)",
+    "dev": "npm run start"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
