@@ -248,7 +248,7 @@
   toggleNavScroll();
 
   /* ── Form Submission ── */
-  document.querySelectorAll('#appointmentForm').forEach(form => {
+  document.querySelectorAll('#appointmentForm, #mobileAppointmentForm').forEach(form => {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
@@ -266,15 +266,56 @@
         });
         const json = await res.json();
         if (json.success) {
-          this.innerHTML = '<div style="text-align:center;padding:24px;"><h4 style="color:#2E8B57;margin:0 0 8px;">Thank You!</h4><p style="color:#fff;margin:0;">Your enquiry has been sent. We\'ll get back to you shortly.</p></div>';
+          // Try to update the step indicator above the form
+          const header = this.previousElementSibling;
+          if (header && header.classList.contains('d-flex')) {
+            const step1 = header.querySelector('.bg-accent');
+            if (step1) {
+              step1.classList.remove('bg-accent', 'text-dark');
+              step1.classList.add('bg-secondary', 'text-white');
+              step1.parentElement.classList.remove('text-accent');
+              step1.parentElement.classList.add('text-white');
+              step1.parentElement.style.opacity = '0.7';
+            }
+            // The second step span has bg-secondary text-white
+            const step2Wrap = header.children[2];
+            if (step2Wrap) {
+              const step2 = step2Wrap.querySelector('span');
+              if (step2) {
+                step2.classList.remove('bg-secondary', 'text-white');
+                step2.classList.add('bg-accent', 'text-dark');
+              }
+              step2Wrap.classList.remove('text-white');
+              step2Wrap.classList.add('text-accent');
+              step2Wrap.style.opacity = '1';
+            }
+          }
+          
+          this.innerHTML = `
+            <div style="text-align:center;padding:24px 10px;">
+              <h4 style="color:#2E8B57;margin:0 0 10px;">Thank You!</h4>
+              <p style="color:rgba(255,255,255,0.9);margin:0 0 25px;">Your service request has been successfully sent.</p>
+              
+              <div style="border-top: 1px dashed rgba(255,255,255,0.4); padding-top: 30px; margin-top: 30px;">
+                <p style="color: #fff; font-size: 1.15rem; font-weight: bold; margin-bottom: 20px;">
+                  To Securely Pay For Your Service Call Please Click The Button Below
+                </p>
+                <a href="https://paypal.me/" target="_blank" class="btn w-100 fw-bold py-3" style="color: #000; font-size: 1rem; background-color: #ffc107;">
+                  Click Here To Make Payment
+                </a>
+              </div>
+            </div>
+          `;
         } else {
           alert('Failed to send. Please try again or call (231) 313-8117.');
         }
       } catch (err) {
         alert('Network error. Please try again or call (231) 313-8117.');
       } finally {
-        btn.disabled = false;
-        btn.textContent = orig;
+        if (this.querySelector('button[type="submit"]')) {
+          btn.disabled = false;
+          btn.textContent = orig;
+        }
       }
     });
   });
