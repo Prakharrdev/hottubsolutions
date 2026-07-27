@@ -72,8 +72,12 @@ app.post('/api/send-enquiry', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-  console.log(`Static files: http://localhost:${PORT}/`);
-  console.log(`API: http://localhost:${PORT}/api/send-enquiry`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Static files: http://localhost:${PORT}/`);
+    console.log(`API: http://localhost:${PORT}/api/send-enquiry`);
+  });
+}
+
+module.exports = app;
