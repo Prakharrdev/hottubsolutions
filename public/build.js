@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const src = path.join(__dirname, 'src');
-const out = __dirname;
+const publicDir = __dirname;
+const demoDir = path.join(__dirname, '..', 'demo');
 
 const partial = name => {
   const content = fs.readFileSync(path.join(src, name), 'utf-8');
@@ -26,17 +27,44 @@ const pages = {
   ],
 };
 
-for (const [filename, partials] of Object.entries(pages)) {
-  const html = partials.map(partial).join('\n');
-
-  // Write to public/
-  fs.writeFileSync(path.join(out, filename), html);
-  console.log(`Built public/${filename}`);
-
-  // Also write to demo/ so Vercel can serve it as a real static file
-  const demoDir = path.join(out, '..', 'demo');
-  if (fs.existsSync(demoDir)) {
-    fs.writeFileSync(path.join(demoDir, filename), html);
-    console.log(`Synced  demo/${filename}`);
+function copyDir(srcDir, destDir) {
+  if (!fs.existsSync(srcDir)) return;
+  fs.mkdirSync(destDir, { recursive: true });
+  for (const entry of fs.readdirSync(srcDir)) {
+    const srcPath = path.join(srcDir, entry);
+    const destPath = path.join(destDir, entry);
+    if (fs.statSync(srcPath).isDirectory()) {
+      copyDir(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
   }
 }
+
+for (const [filename, partials] of Object.entries(pages)) {
+  const html = partials.map(partial).join('\n');
+  fs.writeFileSync(path.join(publicDir, filename), html);
+  console.log(`Built public/${filename}`);
+}
+
+fs.mkdirSync(demoDir, { recursive: true });
+
+for (const [filename, partials] of Object.entries(pages)) {
+  const html = partials.map(partial).join('\n');
+  fs.writeFileSync(path.join(demoDir, filename), html);
+  console.log(`Built demo/${filename}`);
+}
+
+copyDir(path.join(publicDir, 'css'), path.join(demoDir, 'css'));
+copyDir(path.join(publicDir, 'js'), path.join(demoDir, 'js'));
+copyDir(path.join(publicDir, 'images'), path.join(demoDir, 'images'));
+
+for (const file of ['favicon.png', 'form-mail.html']) {
+  const srcFile = path.join(publicDir, file);
+  if (fs.existsSync(srcFile)) {
+    fs.copyFileSync(srcFile, path.join(demoDir, file));
+    console.log(`Copied demo/${file}`);
+  }
+}
+
+console.log('Demo site built to demo/');

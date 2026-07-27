@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index-demo.html'));
 });
 
-app.use('/demo', express.static(path.join(__dirname, 'public')));
+app.use('/demo', express.static(path.join(__dirname, 'demo')));
 
 app.post('/api/send-enquiry', async (req, res) => {
   try {
@@ -34,8 +35,7 @@ app.post('/api/send-enquiry', async (req, res) => {
 
     const values = { firstName, lastName, phone, email, zip, referral, message, appointment };
 
-    const templatePath = path.join(__dirname, 'public', 'form-mail.html');
-    const fs = require('fs');
+    const templatePath = path.join(__dirname, 'demo', 'form-mail.html');
     let html = fs.readFileSync(templatePath, 'utf-8');
 
     for (const [key, label] of Object.entries(labels)) {
@@ -72,12 +72,8 @@ app.post('/api/send-enquiry', async (req, res) => {
   }
 });
 
-if (!process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-    console.log(`Static files: http://localhost:${PORT}/`);
-    console.log(`API: http://localhost:${PORT}/api/send-enquiry`);
-  });
-}
-
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Static files: http://localhost:${PORT}/`);
+  console.log(`API: http://localhost:${PORT}/api/send-enquiry`);
+});
