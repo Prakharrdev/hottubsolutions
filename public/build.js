@@ -5,8 +5,11 @@ const src = path.join(__dirname, 'src');
 const publicDir = __dirname;
 const demoDir = path.join(__dirname, '..', 'demo');
 
+const MAPS_API_KEY = (process.env.GOOGLE_MAPS_API_KEY || '').trim();
+
 const partial = name => {
-  const content = fs.readFileSync(path.join(src, name), 'utf-8');
+  let content = fs.readFileSync(path.join(src, name), 'utf-8');
+  content = content.replaceAll('{{GOOGLE_MAPS_API_KEY}}', MAPS_API_KEY);
   return `<!-- START: ${name} -->\n${content}\n<!-- END: ${name} -->`;
 };
 

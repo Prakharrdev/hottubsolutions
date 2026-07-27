@@ -12,13 +12,23 @@ const RESEND_API = 'https://api.resend.com/emails';
 
 app.use(express.json());
 
-app.use(express.static(__dirname));
+const STATIC_CACHE = { maxAge: '365d', setHeaders: (res, filePath) => {
+  if (filePath.endsWith('.webp') || filePath.endsWith('.png') || filePath.endsWith('.jpg') || filePath.endsWith('.svg')) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  } else if (filePath.endsWith('.css') || filePath.endsWith('.js')) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  } else if (filePath.endsWith('.mp4')) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  }
+}};
+
+app.use(express.static(__dirname, STATIC_CACHE));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index-demo.html'));
 });
 
-app.use('/demo', express.static(path.join(__dirname, 'demo')));
+app.use('/demo', express.static(path.join(__dirname, 'demo'), STATIC_CACHE));
 
 app.post('/api/send-enquiry', async (req, res) => {
   try {

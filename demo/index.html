@@ -651,7 +651,7 @@
           <div class="carousel-wrapper" id="carouselWrapper">
 
             <div class="project-card">
-              <img src="/demo/images/inventory/luxury-spa.webp" alt="Luxury 6-Person Spa">
+              <img src="/demo/images/inventory/luxury-spa.webp" loading="lazy" alt="Luxury 6-Person Spa">
               <div class="card-content">
                 <span class="tag" style="background:#2E8B57;color:#fff;">New</span>
                 <h3>Luxury 6-Person Spa</h3>
@@ -660,7 +660,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/4-person.webp" alt="4-Person Hot Tub">
+              <img src="/demo/images/inventory/4-person.webp" loading="lazy" alt="4-Person Hot Tub">
               <div class="card-content">
                 <span class="tag" style="background:#4A90D9;color:#fff;">New</span>
                 <h3>4-Person Plug & Play</h3>
@@ -669,7 +669,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/used-deal.webp" alt="Used Hot Tub Special">
+              <img src="/demo/images/inventory/used-deal.webp" loading="lazy" alt="Used Hot Tub Special">
               <div class="card-content">
                 <span class="tag" style="background:#E8A317;color:#000;">Used</span>
                 <h3>Certified Pre-Owned Spa</h3>
@@ -678,7 +678,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/7-person.webp" alt="7-Person Hot Tub">
+              <img src="/demo/images/inventory/7-person.webp" loading="lazy" alt="7-Person Hot Tub">
               <div class="card-content">
                 <span class="tag" style="background:#2E8B57;color:#fff;">New</span>
                 <h3>7-Person Family Spa</h3>
@@ -687,7 +687,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/swim-spa.webp" alt="Swim Spa">
+              <img src="/demo/images/inventory/swim-spa.webp" loading="lazy" alt="Swim Spa">
               <div class="card-content">
                 <span class="tag" style="background:#4A90D9;color:#fff;">New</span>
                 <h3>Swim Spa Exercise Pool</h3>
@@ -696,7 +696,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/used-bargain.webp" alt="Used Hot Tub Bargain">
+              <img src="/demo/images/inventory/used-bargain.webp" loading="lazy" alt="Used Hot Tub Bargain">
               <div class="card-content">
                 <span class="tag" style="background:#E8A317;color:#000;">Used</span>
                 <h3>Budget-Friendly Used Tub</h3>
@@ -705,7 +705,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/8-person.webp" alt="8-Person Hot Tub">
+              <img src="/demo/images/inventory/8-person.webp" loading="lazy" alt="8-Person Hot Tub">
               <div class="card-content">
                 <span class="tag" style="background:#2E8B57;color:#fff;">New</span>
                 <h3>8-Person Entertainer</h3>
@@ -714,7 +714,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/deluxe.webp" alt="Deluxe Hot Tub">
+              <img src="/demo/images/inventory/deluxe.webp" loading="lazy" alt="Deluxe Hot Tub">
               <div class="card-content">
                 <span class="tag" style="background:#4A90D9;color:#fff;">New</span>
                 <h3>Deluxe 5-Person Spa</h3>
@@ -723,7 +723,7 @@
             </div>
 
             <div class="project-card">
-              <img src="/demo/images/inventory/parts.webp" alt="Parts & Accessories">
+              <img src="/demo/images/inventory/parts.webp" loading="lazy" alt="Parts & Accessories">
               <div class="card-content">
                 <span class="tag" style="background:#1A3A5C;color:#fff;">Parts</span>
                 <h3>Covers, Chemicals & Parts</h3>
@@ -820,7 +820,13 @@
 <!-- END: _serving.html -->
 <!-- START: _map.html -->
       <!-- ═══════════════════════════ MAP ═══════════════════════════ -->
-      <div id="map" class="service-map" style="width:100%;height:520px;"></div>
+      <div id="map" class="service-map" style="width:100%;height:520px;position:relative;">
+        <iframe id="map-fallback"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5790066.883128983!2d-91.55246648088614!3d44.87896344949037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d4caa3dc7ca0411%3A0x97dd48597a62c9b3!2sMichigan%2C%20USA!5e0!3m2!1sen!2sin!4v1785155069754!5m2!1sen!2sin"
+          width="100%" height="100%" style="border:0;position:absolute;inset:0;"
+          allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
 
 <!-- END: _map.html -->
 <!-- START: _footer.html -->
@@ -918,202 +924,111 @@
     <script src="/demo/js/main.js"></script>
 
     <script>
-      const serviceAreas = [
-        { county: "Grand Traverse", fips: "26055", area: "Traverse City",             lat: 44.7631, lng: -85.6206 },
-        { county: "Kalkaska",        fips: "26079", area: "Kalkaska",                  lat: 44.7342, lng: -85.1792 },
-        { county: "Wexford",         fips: "26165", area: "Cadillac",                  lat: 44.2519, lng: -85.4012 },
-        { county: "Antrim",          fips: "26009", area: "Bellaire / Elk Rapids",     lat: 44.9731, lng: -85.2584 },
-        { county: "Manistee",        fips: "26101", area: "Manistee",                  lat: 44.2442, lng: -86.3240 }
-      ];
+      const MAPS_API_KEY = ''.trim();
 
-      const centerLat = serviceAreas.reduce((s, a) => s + a.lat, 0) / serviceAreas.length;
-      const centerLng = serviceAreas.reduce((s, a) => s + a.lng, 0) / serviceAreas.length;
+      if (MAPS_API_KEY) {
+        const serviceAreas = [
+          { county: "Grand Traverse", fips: "26055", area: "Traverse City",             lat: 44.7631, lng: -85.6206 },
+          { county: "Kalkaska",        fips: "26079", area: "Kalkaska",                  lat: 44.7342, lng: -85.1792 },
+          { county: "Wexford",         fips: "26165", area: "Cadillac",                  lat: 44.2519, lng: -85.4012 },
+          { county: "Antrim",          fips: "26009", area: "Bellaire / Elk Rapids",     lat: 44.9731, lng: -85.2584 },
+          { county: "Manistee",        fips: "26101", area: "Manistee",                  lat: 44.2442, lng: -86.3240 }
+        ];
 
-      let mapsLoaded = false;
+        const centerLat = serviceAreas.reduce((s, a) => s + a.lat, 0) / serviceAreas.length;
+        const centerLng = serviceAreas.reduce((s, a) => s + a.lng, 0) / serviceAreas.length;
 
-      function initServiceMap() {
-        mapsLoaded = true;
-        const mapEl = document.getElementById('map');
-        if (!mapEl) return;
+        let mapsLoaded = false;
 
-        const map = new google.maps.Map(mapEl, {
-          mapTypeId: 'roadmap'
-        });
+        window.initServiceMap = function() {
+          mapsLoaded = true;
+          const mapEl = document.getElementById('map');
+          if (!mapEl) return;
 
-        const bounds = new google.maps.LatLngBounds();
+          const fallback = document.getElementById('map-fallback');
+          if (fallback) fallback.style.display = 'none';
 
-        serviceAreas.forEach(location => {
-          const marker = new google.maps.Marker({
-            position: { lat: location.lat, lng: location.lng },
-            map,
-            title: location.county
+          const map = new google.maps.Map(mapEl, {
+            mapTypeId: 'roadmap'
           });
 
-          const info = new google.maps.InfoWindow({
-            content: '<b>' + location.county + ' County</b><br>' + location.area
+          const bounds = new google.maps.LatLngBounds();
+
+          serviceAreas.forEach(location => {
+            const marker = new google.maps.Marker({
+              position: { lat: location.lat, lng: location.lng },
+              map,
+              title: location.county
+            });
+
+            const info = new google.maps.InfoWindow({
+              content: '<b>' + location.county + ' County</b><br>' + location.area
+            });
+
+            marker.addListener('click', () => info.open(map, marker));
+            bounds.extend(marker.getPosition());
           });
 
-          marker.addListener('click', () => info.open(map, marker));
-          bounds.extend(marker.getPosition());
-        });
+          Promise.all([
+            fetch('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json').then(r => r.json()),
+            new Promise(resolve => {
+              const s = document.createElement('script');
+              s.src = 'https://unpkg.com/@turf/turf@6/turf.min.js';
+              s.onload = resolve;
+              document.head.appendChild(s);
+            })
+          ]).then(([data]) => {
+            const fipsSet = serviceAreas.map(s => s.fips);
+            const features = data.features.filter(f => fipsSet.includes(f.id));
+            const merged = features.reduce((acc, f) => {
+              if (!acc) return f;
+              return turf.union(acc, f);
+            }, null);
 
-        Promise.all([
-          fetch('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json').then(r => r.json()),
-          new Promise(resolve => {
-            const s = document.createElement('script');
-            s.src = 'https://unpkg.com/@turf/turf@6/turf.min.js';
-            s.onload = resolve;
-            document.head.appendChild(s);
-          })
-        ]).then(([data]) => {
-          const fipsSet = serviceAreas.map(s => s.fips);
-          const features = data.features.filter(f => fipsSet.includes(f.id));
-          const merged = features.reduce((acc, f) => {
-            if (!acc) return f;
-            return turf.union(acc, f);
-          }, null);
+            function coordsToPath(coords) {
+              return coords.map(c => ({ lat: c[1], lng: c[0] }));
+            }
 
-          function coordsToPath(coords) {
-            return coords.map(c => ({ lat: c[1], lng: c[0] }));
-          }
+            function getRings(geom) {
+              if (geom.type === 'Polygon') return [geom.coordinates[0]];
+              const rings = [];
+              geom.coordinates.forEach(p => rings.push(p[0]));
+              return rings;
+            }
 
-          function getRings(geom) {
-            if (geom.type === 'Polygon') return [geom.coordinates[0]];
-            const rings = [];
-            geom.coordinates.forEach(p => rings.push(p[0]));
-            return rings;
-          }
+            const outerRings = getRings(merged.geometry);
 
-          const outerRings = getRings(merged.geometry);
+            outerRings.forEach(ring => {
+              new google.maps.Polygon({
+                paths: coordsToPath(ring),
+                fillColor: '#2E8B57',
+                fillOpacity: 0.35,
+                strokeColor: '#1A6B3F',
+                strokeWeight: 3,
+                strokeOpacity: 1,
+                strokeDashPattern: [12, 8],
+                map
+              });
+            });
 
-          outerRings.forEach(ring => {
-            new google.maps.Polygon({
-              paths: coordsToPath(ring),
-              fillColor: '#2E8B57',
-              fillOpacity: 0.35,
-              strokeColor: '#1A6B3F',
-              strokeWeight: 3,
-              strokeOpacity: 1,
-              strokeDashPattern: [12, 8],
-              map
+            map.addListener('click', (e) => {
+              const pt = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+              if (turf.booleanPointInPolygon(pt, merged)) {
+                new google.maps.InfoWindow({
+                  content: '<b>Hot Tub Solutions Service Area</b><br>Northern Michigan'
+                }).open(map, null, e.latLng);
+              }
             });
           });
 
-          map.addListener('click', (e) => {
-            const pt = { lat: e.latLng.lat(), lng: e.latLng.lng() };
-            if (turf.booleanPointInPolygon(pt, merged)) {
-              new google.maps.InfoWindow({
-                content: '<b>Hot Tub Solutions Service Area</b><br>Northern Michigan'
-              }).open(map, null, e.latLng);
-            }
+          map.fitBounds(bounds, { top: 80, bottom: 80, left: 80, right: 80 });
+          google.maps.event.addListenerOnce(map, "bounds_changed", () => {
+            if (map.getZoom() > 8) map.setZoom(8);
           });
-        });
-
-        map.fitBounds(bounds, { top: 80, bottom: 80, left: 80, right: 80 });
-        google.maps.event.addListenerOnce(map, "bounds_changed", () => {
-          if (map.getZoom() > 8) map.setZoom(8);
-        });
+        };
       }
-
-      function renderFallbackMap() {
-        if (mapsLoaded || typeof google !== 'undefined') return;
-        const mapEl = document.getElementById('map');
-        if (!mapEl) return;
-
-        const canvas = document.createElement('canvas');
-        canvas.width = mapEl.clientWidth || mapEl.parentElement.clientWidth || 800;
-        canvas.height = 520;
-        canvas.style.width = '100%';
-        canvas.style.height = '520px';
-        canvas.style.display = 'block';
-        mapEl.appendChild(canvas);
-
-        const ctx = canvas.getContext('2d');
-        const w = canvas.width, h = canvas.height;
-        const pad = 60;
-        const drawW = w - pad * 2;
-        const drawH = h - pad * 2;
-
-        const lats = serviceAreas.map(a => a.lat);
-        const lngs = serviceAreas.map(a => a.lng);
-        const minLat = Math.min(...lats) - 0.15;
-        const maxLat = Math.max(...lats) + 0.15;
-        const minLng = Math.min(...lngs) - 0.15;
-        const maxLng = Math.max(...lngs) + 0.15;
-
-        function toCanvas(lat, lng) {
-          const x = pad + ((lng - minLng) / (maxLng - minLng)) * drawW;
-          const y = pad + ((maxLat - lat) / (maxLat - minLat)) * drawH;
-          return { x, y };
-        }
-
-        ctx.fillStyle = '#f0f4f8';
-        ctx.fillRect(0, 0, w, h);
-
-        ctx.strokeStyle = '#dce2ea';
-        ctx.lineWidth = 1;
-        for (let i = 0; i <= 4; i++) {
-          const x = pad + (i / 4) * drawW;
-          ctx.beginPath();
-          ctx.moveTo(x, pad);
-          ctx.lineTo(x, pad + drawH);
-          ctx.stroke();
-          const y = pad + (i / 4) * drawH;
-          ctx.beginPath();
-          ctx.moveTo(pad, y);
-          ctx.lineTo(pad + drawW, y);
-          ctx.stroke();
-        }
-
-        const c = toCanvas(centerLat, centerLng);
-        ctx.strokeStyle = '#2E8B57';
-        ctx.lineWidth = 2;
-        ctx.setLineDash([6, 4]);
-        ctx.beginPath();
-        ctx.moveTo(c.x - 20, c.y);
-        ctx.lineTo(c.x + 20, c.y);
-        ctx.moveTo(c.x, c.y - 20);
-        ctx.lineTo(c.x, c.y + 20);
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        ctx.fillStyle = '#2E8B57';
-        ctx.font = 'bold 13px system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Service Area Centre', c.x, c.y + 38);
-
-        serviceAreas.forEach(a => {
-          const p = toCanvas(a.lat, a.lng);
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
-          ctx.fillStyle = '#2E8B57';
-          ctx.fill();
-          ctx.strokeStyle = '#fff';
-          ctx.lineWidth = 2;
-          ctx.stroke();
-
-          ctx.fillStyle = '#1e293b';
-          ctx.font = 'bold 12px system-ui, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText(a.county, p.x, p.y - 16);
-          ctx.font = '11px system-ui, sans-serif';
-          ctx.fillStyle = '#64748b';
-          ctx.fillText(a.area, p.x, p.y + 24);
-        });
-
-        ctx.fillStyle = '#94a3b8';
-        ctx.font = '11px system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Northern Michigan · Service Area', w / 2, h - 10);
-        ctx.fillStyle = '#94a3b8';
-        ctx.font = '10px system-ui, sans-serif';
-        ctx.textAlign = 'right';
-        ctx.fillText('Map unavailable — interactive map requires a Google Maps API key', w - 10, 18);
-      }
-
-      setTimeout(renderFallbackMap, 3000);
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA669XOcjhMbPpXW5ap4sqjnKYcN7Ypyyk&callback=initServiceMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initServiceMap"></script>
   </body>
 </html>
 
