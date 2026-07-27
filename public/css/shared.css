@@ -58,8 +58,8 @@ a { text-decoration: none; }
   .hero {
     min-height: max(var(--hero-height), var(--hero-min-height));
     padding: 0;
-    padding-bottom: 40px;
-    background: #111;
+    padding-bottom: 120px;
+    background: #2a3318;
   }
 }
 
