@@ -1,8 +1,7 @@
 {
+  "buildCommand": "npm run vercel-build",
   "rewrites": [
-    { "source": "/", "destination": "/index-demo.html" },
-    { "source": "/demo", "destination": "/public/index.html" },
-    { "source": "/demo/:path*", "destination": "/public/:path*" },
-    { "source": "/api/:path*", "destination": "/api/index.js" }
+    { "source": "/api/:path*", "destination": "/api/index.js" },
+    { "source": "/", "destination": "/index-demo.html" }
   ]
 }

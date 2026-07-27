@@ -28,6 +28,15 @@ const pages = {
 
 for (const [filename, partials] of Object.entries(pages)) {
   const html = partials.map(partial).join('\n');
+
+  // Write to public/
   fs.writeFileSync(path.join(out, filename), html);
   console.log(`Built public/${filename}`);
+
+  // Also write to demo/ so Vercel can serve it as a real static file
+  const demoDir = path.join(out, '..', 'demo');
+  if (fs.existsSync(demoDir)) {
+    fs.writeFileSync(path.join(demoDir, filename), html);
+    console.log(`Synced  demo/${filename}`);
+  }
 }
