@@ -470,7 +470,12 @@ a { text-decoration: none; }
   }
 
   /* ── Hero Waves Mobile ──
-     Keep waves, but match their fill to the mobile About section background (#E8F4FD) */
+     Resize waves for mobile and match fill to the mobile About section background (#E8F4FD) */
+  .hero-wave-1 svg,
+  .hero-wave-2 svg,
+  .hero-wave-3 svg {
+    height: 60px;
+  }
   .hero-wave-1 .wave-fill,
   .hero-wave-2 .wave-fill,
   .hero-wave-3 .wave-fill {
@@ -546,8 +551,7 @@ a { text-decoration: none; }
 
   /* ── Mobile Form Section ── */
   .hero-mobile-form-section {
-    background: var(--color-primary-dark);
-    padding: 24px 16px 32px;
+    padding: 24px 16px 80px;
   }
 
   .hero-mobile-form-card {
@@ -941,7 +945,7 @@ a { text-decoration: none; }
 /* Component Media Queries */
 @media (max-width: 991.98px) {
   .company-section   { background: #E8F4FD; }
-  .company-img-col   { position: relative !important; height: 280px; width: 100% !important; flex: 0 0 100%; max-width: 100%; border-radius: 0; }
+  .company-img-col   { position: relative !important; height: auto !important; aspect-ratio: 800 / 999; width: 100% !important; flex: 0 0 100%; max-width: 100%; border-radius: 0; }
   .company-section .offset-lg-5 { margin-left: 0 !important; width: 100% !important; flex: 0 0 100%; max-width: 100%; }
   .section-title { font-size: 1.8rem; padding: 10px 16px; }
   .stat-circle   { width: 75px; height: 75px; font-size: 1.4rem; }
