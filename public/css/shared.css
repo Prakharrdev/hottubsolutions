@@ -459,18 +459,28 @@ a { text-decoration: none; }
   .hero-desktop-layout { display: none; }
   .hero-mobile-layout  { display: block; }
 
-  .hero__bg { display: none; }
-  .hero__overlay { display: none; }
-  .hero { background: var(--color-primary-dark); }
-
-  .hero-mobile-img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
+  /* ── Mobile Hero Overlay ──
+     Make the gradient darker and more vertical on mobile so text/form are readable */
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 36, 64, 0.65) 0%,
+      rgba(15, 36, 64, 0.85) 100%
+    );
   }
 
+  /* ── Hero Waves Mobile ──
+     Keep waves, but match their fill to the mobile About section background (#E8F4FD) */
+  .hero-wave-1 .wave-fill,
+  .hero-wave-2 .wave-fill,
+  .hero-wave-3 .wave-fill {
+    fill: #E8F4FD;
+  }
+
+  /* ── Mobile Hero Content ── */
   .hero-mobile-content {
+    position: relative;
+    z-index: 2;
     padding: 32px 20px 24px;
     text-align: center;
   }
@@ -534,6 +544,7 @@ a { text-decoration: none; }
   }
   .btn-mobile-estimate:hover { border-color: var(--color-accent); color: var(--color-accent); }
 
+  /* ── Mobile Form Section ── */
   .hero-mobile-form-section {
     background: var(--color-primary-dark);
     padding: 24px 16px 32px;
@@ -548,6 +559,7 @@ a { text-decoration: none; }
     color: var(--color-white);
   }
 
+  /* ── Mobile Info Bar ── */
   .hero-mobile-info-bar {
     display: flex;
     flex-direction: column;
@@ -599,6 +611,16 @@ a { text-decoration: none; }
     color: rgba(255,255,255,0.4);
     text-decoration: none;
     line-height: 1;
+  }
+
+  /* ── Section Wave — smaller on tablet ── */
+  .section-wave-top svg {
+    height: 90px;
+  }
+
+  /* Override inline padding-top for wave sections on tablet */
+  [style*="padding-top: 140px"] {
+    padding-top: 100px !important;
   }
 }
 
@@ -679,6 +701,24 @@ a { text-decoration: none; }
   .footer-list li, .footer-list a, .business-hours li { font-size: 0.95rem; }
   .business-hours li { flex-direction: column; gap: 2px; }
   .copyright-bar p, .copyright-bar a { font-size: 1.05rem; }
+
+  /* ── Smaller hero content on phone ── */
+  .hero-mobile-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-mobile-desc {
+    font-size: 0.95rem;
+  }
+
+  /* ── Even smaller waves on phone ── */
+  .section-wave-top svg {
+    height: 60px;
+  }
+
+  [style*="padding-top: 140px"] {
+    padding-top: 75px !important;
+  }
 }
 
 /* Phase 6 CTA Banner */
@@ -900,7 +940,8 @@ a { text-decoration: none; }
 
 /* Component Media Queries */
 @media (max-width: 991.98px) {
-  .company-img-col  { position: relative !important; height: 280px; width: 100% !important; flex: 0 0 100%; max-width: 100%; }
+  .company-section   { background: #E8F4FD; }
+  .company-img-col   { position: relative !important; height: 280px; width: 100% !important; flex: 0 0 100%; max-width: 100%; border-radius: 0; }
   .company-section .offset-lg-5 { margin-left: 0 !important; width: 100% !important; flex: 0 0 100%; max-width: 100%; }
   .section-title { font-size: 1.8rem; padding: 10px 16px; }
   .stat-circle   { width: 75px; height: 75px; font-size: 1.4rem; }
