@@ -182,19 +182,19 @@ a { text-decoration: none; }
   position: relative;
   display: block;
   width: calc(148% + 1.3px);
-  height: 47px;
+  height: clamp(20px, 3.5vw, 50px);
 }
 .hero-wave-2 svg {
   position: relative;
   display: block;
   width: calc(145% + 1.3px);
-  height: 75px;
+  height: clamp(30px, 5.5vw, 75px);
 }
 .hero-wave-3 svg {
   position: relative;
   display: block;
   width: calc(132% + 1.3px);
-  height: 164px;
+  height: clamp(60px, 12vw, 164px);
 }
 
 .hero-wave-1 .wave-fill,
@@ -470,12 +470,7 @@ a { text-decoration: none; }
   }
 
   /* ── Hero Waves Mobile ──
-     Resize waves for mobile and match fill to the mobile About section background (#E8F4FD) */
-  .hero-wave-1 svg,
-  .hero-wave-2 svg,
-  .hero-wave-3 svg {
-    height: 60px;
-  }
+     Match fill to the mobile About section background (#E8F4FD) */
   .hero-wave-1 .wave-fill,
   .hero-wave-2 .wave-fill,
   .hero-wave-3 .wave-fill {
@@ -620,11 +615,6 @@ a { text-decoration: none; }
     line-height: 1;
   }
 
-  /* ── Section Wave — smaller on tablet ── */
-  .section-wave-top svg {
-    height: 90px;
-  }
-
   /* Override inline padding-top for wave sections on tablet */
   [style*="padding-top: 140px"] {
     padding-top: 100px !important;
@@ -716,11 +706,6 @@ a { text-decoration: none; }
 
   .hero-mobile-desc {
     font-size: 0.95rem;
-  }
-
-  /* ── Even smaller waves on phone ── */
-  .section-wave-top svg {
-    height: 60px;
   }
 
   [style*="padding-top: 140px"] {
@@ -1024,7 +1009,7 @@ a { text-decoration: none; }
   position: relative;
   display: block;
   width: calc(157% + 1.3px);
-  height: 150px;
+  height: clamp(50px, 10vw, 150px);
 }
 
 .section-wave-top .wave-fill {
@@ -1048,7 +1033,7 @@ a { text-decoration: none; }
   position: relative;
   display: block;
   width: calc(157% + 1.3px);
-  height: 150px;
+  height: clamp(50px, 10vw, 150px);
 }
 
 .section-wave-bottom .wave-fill {
