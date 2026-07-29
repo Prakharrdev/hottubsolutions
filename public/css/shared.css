@@ -639,6 +639,62 @@ a { text-decoration: none; }
   line-height: 1.8;
 }
 
+/* Brands Strip */
+.brands-section {
+  position: relative;
+  overflow: hidden;
+  height: 160px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.brands-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('/demo/images/wooden-bg.webp') center center / cover no-repeat;
+  filter: brightness(0.85) saturate(1.1);
+}
+.brands-label {
+  position: relative;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 16px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.brands-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+}
+.brand-logo {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.25s, filter 0.25s;
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+.brand-logo:hover {
+  transform: scale(1.08);
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+.brand-logo img {
+  max-height: 100%;
+  width: auto;
+}
+@media (max-width: 768px) {
+  .brands-section { height: auto; padding: 32px 0; }
+  .brands-row { gap: 24px 32px; }
+  .brand-logo { height: 40px; }
+}
+
 .footer-main         { background-color: #1A3A5C; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; color: var(--color-text-light) !important; padding: 72px 0 0; }
 .footer-main p       { color: rgba(255,255,255,0.85); font-size: 1.1rem; }
 .footer-heading      { font-size: 1.3rem; font-weight: 700; color: var(--color-white) !important; text-transform: uppercase; letter-spacing: 0.08em; position: relative; padding-bottom: 8px; margin-bottom: 18px; }

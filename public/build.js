@@ -25,6 +25,7 @@ const pages = {
     '_badges.html',
     '_serving.html',
     '_map.html',
+    '_brands.html',
     '_footer.html',
     '_scripts.html',
   ],
