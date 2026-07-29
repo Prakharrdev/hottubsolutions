@@ -218,6 +218,11 @@
     /* Update image height to match screenshot */
     height: 420px;
     overflow: hidden;
+    transition: height 0.3s ease;
+  }
+  
+  .accordion-card.active .card-bg {
+    height: 220px;
   }
   
   .card-bg img {
@@ -252,6 +257,16 @@
     padding: 24px;
     z-index: 2;
     background: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .accordion-card.active .card-header {
+    position: relative;
+    top: auto;
+    transform: none;
+    background: #050505;
+    padding-top: 24px;
+    padding-bottom: 8px;
   }
   
   .card-title {
@@ -262,6 +277,11 @@
     align-items: flex-start;
     gap: 8px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+  
+  .accordion-card.active .card-title {
+    flex-direction: row;
+    align-items: center;
   }
 
   .card-title i {
@@ -282,8 +302,15 @@
   }
   
   .accordion-card.active .mobile-chevron {
-    /* Chevron rotates 180° */
-    transform: rotate(180deg);
+    transform: none;
+  }
+
+  .accordion-card.active .icon-expand {
+    display: none;
+  }
+  
+  .accordion-card.active .icon-collapse {
+    display: block !important;
   }
   
   .card-details {
@@ -293,7 +320,7 @@
     /* Accordion opens in 250ms. Height animates smoothly */
     transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
     padding: 0 24px;
-    background: #1a1a1a;
+    background: #050505;
     align-items: flex-start;
   }
   
