@@ -72,12 +72,17 @@
     width: 100%;
     height: 70%;
     background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, height 0.4s ease;
     pointer-events: none;
   }
 
   .accordion-card:hover .card-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  }
+  
+  .accordion-card.active .card-overlay {
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, #050505 50%, #050505 100%);
   }
   
   .card-content-wrapper {
@@ -90,11 +95,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, width 0.4s ease, height 0.4s ease, padding 0.4s ease;
   }
   
   .accordion-card:hover .card-content-wrapper {
     transform: translateY(-10px);
+  }
+
+  .accordion-card.active .card-content-wrapper {
+    height: 100%;
+    width: 65%;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 40px;
+    transform: none;
   }
 
   .card-header {
@@ -115,7 +132,15 @@
   }
   
   .accordion-card.active .card-title {
+    flex-direction: row;
+    justify-content: flex-start;
     margin-bottom: 24px;
+    gap: 12px;
+  }
+
+  .accordion-card.active .card-title i {
+    margin-bottom: 0;
+    font-size: 1.8rem;
   }
 
   .gold-line {
@@ -128,6 +153,10 @@
   
   .accordion-card:hover .gold-line {
     width: 48px;
+  }
+
+  .accordion-card.active .gold-line {
+    display: none;
   }
 
   .card-details {
@@ -146,6 +175,8 @@
   .accordion-card.active .card-details {
     opacity: 1;
     max-height: 400px;
+    align-items: flex-start;
+    padding: 0;
   }
   
   /* Button slide up: 300ms */
@@ -290,17 +321,17 @@
 }
 
 .detail-list li {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 10px;
+  color: rgba(255,255,255,0.9);
 }
 
 .detail-list li i {
-  color: var(--color-accent);
-  font-size: 1.3rem;
-  font-weight: bold;
+  color: #c99b3b;
+  font-size: 1.1rem;
 }
 
 .detail-price {
@@ -310,11 +341,12 @@
 
 .price-label {
   display: block;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  color: #c99b3b;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 4px;
+  font-weight: 700;
 }
 
 .price-value {
@@ -325,15 +357,17 @@
 }
 
 .btn-call-more {
-  background: var(--color-accent);
-  color: #fff;
+  background: #c99b3b;
+  color: #000;
   text-decoration: none;
   font-weight: 700;
   padding: 12px 24px;
   border-radius: var(--radius-md);
   font-size: 1.05rem;
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
   white-space: nowrap;
 }
@@ -345,6 +379,6 @@
 }
 
 .btn-call-more:hover {
-  background: var(--color-accent-glow);
-  color: #fff;
+  background: #d4a94f;
+  color: #000;
 }
