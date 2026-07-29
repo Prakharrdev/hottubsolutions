@@ -215,8 +215,8 @@
   .card-bg {
     position: relative;
     width: 100%;
-    /* Keep image height consistent */
-    height: 250px;
+    /* Update image height to match screenshot */
+    height: 420px;
     overflow: hidden;
   }
   
@@ -232,11 +232,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
   }
   
   .card-content-wrapper {
-    position: relative;
+    position: static;
     color: white;
     padding: 0;
   }
@@ -244,21 +244,29 @@
   .card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
-    position: relative;
-    padding: 16px 24px;
+    position: absolute;
+    top: 420px; /* sit at bottom of image */
+    transform: translateY(-100%);
+    padding: 24px;
     z-index: 2;
-    background: #1a1a1a;
+    background: transparent;
   }
   
   .card-title {
     font-size: 1.5rem;
     font-weight: 700;
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+
+  .card-title i {
+    font-size: 1.8rem;
+    margin-bottom: 0;
   }
 
   .gold-line {
@@ -270,6 +278,7 @@
     /* Chevron rotates smoothly */
     transition: transform 0.25s ease;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    margin-bottom: 2px;
   }
   
   .accordion-card.active .mobile-chevron {
