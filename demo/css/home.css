@@ -216,13 +216,13 @@
     position: relative;
     width: 100%;
     /* Update image height to match screenshot */
-    height: 420px;
+    height: 240px;
     overflow: hidden;
     transition: height 0.3s ease;
   }
   
   .accordion-card.active .card-bg {
-    height: 220px;
+    height: 240px;
   }
   
   .card-bg img {
@@ -252,7 +252,7 @@
     align-items: flex-end;
     width: 100%;
     position: absolute;
-    top: 420px; /* sit at bottom of image */
+    top: 240px; /* sit at bottom of image */
     transform: translateY(-100%);
     padding: 24px;
     z-index: 2;
@@ -366,7 +366,7 @@
 }
 
 .detail-list li i {
-  color: #c99b3b;
+  color: var(--color-accent);
   font-size: 1.1rem;
 }
 
@@ -378,7 +378,7 @@
 .price-label {
   display: block;
   font-size: 0.85rem;
-  color: #c99b3b;
+  color: rgba(255,255,255,0.7);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 4px;
@@ -393,8 +393,8 @@
 }
 
 .btn-call-more {
-  background: #c99b3b;
-  color: #000;
+  background: var(--color-accent);
+  color: #fff;
   text-decoration: none;
   font-weight: 700;
   padding: 12px 24px;
@@ -415,6 +415,6 @@
 }
 
 .btn-call-more:hover {
-  background: #d4a94f;
-  color: #000;
+  background: var(--color-accent-glow);
+  color: #fff;
 }
