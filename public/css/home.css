@@ -87,15 +87,16 @@
   
   .card-content-wrapper {
     position: absolute;
-    bottom: 30px;
+    top: calc(100% - 120px);
     left: 0;
     width: 100%;
+    padding: 0 20px;
     z-index: 2;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease, width 0.4s ease, height 0.4s ease, padding 0.4s ease;
+    transition: top 0.4s ease, transform 0.4s ease, padding 0.4s ease;
   }
   
   .accordion-card:hover .card-content-wrapper {
@@ -103,15 +104,11 @@
   }
 
   .accordion-card.active .card-content-wrapper {
-    height: 100%;
-    width: 65%;
-    left: auto;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     align-items: flex-start;
-    justify-content: center;
-    padding: 0 40px;
-    transform: none;
+    padding-left: 38%;
+    padding-right: 40px;
   }
 
   .card-header {
@@ -251,22 +248,19 @@
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    position: absolute;
-    top: 240px; /* sit at bottom of image */
-    transform: translateY(-100%);
-    padding: 24px;
+    position: relative;
+    height: 116px;
+    margin-top: -116px; /* pull up exactly its height */
+    padding: 16px 24px;
     z-index: 2;
     background: transparent;
-    transition: all 0.3s ease;
+    transition: margin-top 0.35s ease, background 0.35s ease;
   }
   
   .accordion-card.active .card-header {
-    position: relative;
-    top: auto;
-    transform: none;
+    margin-top: 0;
     background: #050505;
-    padding-top: 24px;
-    padding-bottom: 8px;
+    padding: 16px 24px;
   }
   
   .card-title {
