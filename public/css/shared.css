@@ -971,6 +971,43 @@ a { text-decoration: none; }
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .service-card-link {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .service-img {
+    width: 42%;
+    height: auto;
+    min-height: 100%;
+    flex-shrink: 0;
+  }
+  .service-content {
+    width: 58%;
+    padding: 16px;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+  }
+  .service-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .service-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .service-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  .service-text p {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  .learn-more {
+    font-size: 0.85rem;
   }
 }
 .company-img-col   { background: url('/demo/images/about.webp') no-repeat center center / cover; position: absolute; top: 0; left: 0; bottom: 0; height: 100%; }
