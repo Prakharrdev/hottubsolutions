@@ -736,6 +736,65 @@
       </section>
 
 <!-- END: _inventory.html -->
+<!-- START: _accordion.html -->
+<!-- ═══════════════════════════ ACCORDION SECTION ═══════════════════════════ -->
+<section class="inventory-accordion-section" id="accordion-section">
+  <div class="accordion-container" id="inventoryAccordion">
+    <div class="accordion-card" onclick="toggleAccordion(this)">
+      <img src="/demo/images/inventory/luxury-spa.webp" alt="Hot Tubs">
+      <div class="card-overlay"></div>
+      <div class="card-title">
+        <i class="bi bi-droplet-fill"></i>
+        <span>Hot Tubs</span>
+      </div>
+    </div>
+    
+    <div class="accordion-card" onclick="toggleAccordion(this)">
+      <img src="/demo/images/inventory/swim-spa.webp" alt="Swim Spas">
+      <div class="card-overlay"></div>
+      <div class="card-title">
+        <i class="bi bi-water"></i>
+        <span>Swim Spas</span>
+      </div>
+    </div>
+    
+    <div class="accordion-card" onclick="toggleAccordion(this)">
+      <img src="/demo/images/inventory/used-deal.webp" alt="Pre-Owned">
+      <div class="card-overlay"></div>
+      <div class="card-title">
+        <i class="bi bi-recycle"></i>
+        <span>Pre-Owned</span>
+      </div>
+    </div>
+    
+    <div class="accordion-card" onclick="toggleAccordion(this)">
+      <img src="/demo/images/inventory/parts.webp" alt="Accessories">
+      <div class="card-overlay"></div>
+      <div class="card-title">
+        <i class="bi bi-tools"></i>
+        <span>Accessories</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleAccordion(element) {
+  const container = document.getElementById('inventoryAccordion');
+  const cards = container.querySelectorAll('.accordion-card');
+  
+  if (element.classList.contains('active')) {
+    element.classList.remove('active');
+    container.classList.remove('has-active');
+  } else {
+    cards.forEach(card => card.classList.remove('active'));
+    element.classList.add('active');
+    container.classList.add('has-active');
+  }
+}
+</script>
+
+<!-- END: _accordion.html -->
 <!-- START: _badges.html -->
       <!-- ═══════════════════════════ REVIEW BADGES ═══════════════════════════ -->
       <section class="review-section pb-4 text-center" style="position: relative; padding-top: 140px; --wave-fill: var(--color-white);">

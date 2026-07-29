@@ -1,1 +1,86 @@
-/* Home page specific styles (if needed) */
+/* Accordion Section */
+.inventory-accordion-section {
+  width: 100vw;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.accordion-container {
+  display: flex;
+  width: 100vw;
+  height: 700px;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-card {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.accordion-container.has-active .accordion-card {
+  width: 18%;
+}
+
+.accordion-container.has-active .accordion-card.active {
+  width: 46%;
+}
+
+.accordion-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease;
+}
+
+.accordion-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card-title {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.card-title i {
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+}
