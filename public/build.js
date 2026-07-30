@@ -21,7 +21,7 @@ const pages = {
     '_about.html',
     '_services.html',
     '_reviews.html',
-    '_accordion.html',
+    '_inventory.html',
     '_badges.html',
     '_serving.html',
     '_map.html',
