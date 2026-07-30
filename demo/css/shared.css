@@ -364,16 +364,13 @@ a { text-decoration: none; }
 }
 
 .mobile-topbar-logo-link {
-  display: block;
-  order: 2;
-  flex: 1;
-  text-align: center;
+  display: none !important;
 }
 
 .mobile-topbar-logo {
   height: 45px;
   width: auto;
-  display: inline-block;
+  display: none !important;
 }
 
 .topbar-phone-icon { 
@@ -481,8 +478,26 @@ a { text-decoration: none; }
   .hero-mobile-content {
     position: relative;
     z-index: 2;
-    padding: 80px 20px 24px;
+    padding: 64px 20px 24px;
     text-align: center;
+  }
+
+  .hero-mobile-content .hero__logo--mobile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .hero-mobile-content .hero__logo--mobile a {
+    display: inline-block;
+  }
+
+  .hero-mobile-content .hero__logo--mobile .logo {
+    width: 110px;
+    height: 110px;
+    border-width: 2px;
+    margin: 0 auto;
   }
 
   .hero-mobile-title {
@@ -509,7 +524,7 @@ a { text-decoration: none; }
     gap: 12px;
     max-width: 400px;
     margin: 0 auto;
-    padding: 12px 16px 120px;
+    padding: 12px 16px 80px;
     position: relative;
     z-index: 10;
   }
