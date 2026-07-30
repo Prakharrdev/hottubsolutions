@@ -2,7 +2,7 @@
 .inventory-accordion-section {
   width: 100vw;
   max-width: 100%;
-  padding: 0;
+  padding: 80px 0 0;
   margin: 0;
   overflow: hidden;
   background: #0a0a0a;
