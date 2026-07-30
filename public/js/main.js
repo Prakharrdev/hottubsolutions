@@ -298,14 +298,18 @@
               
               <div style="border-top: 1px dashed rgba(255,255,255,0.4); padding-top: 30px; margin-top: 30px;">
                 <p style="color: #fff; font-size: 1.15rem; font-weight: bold; margin-bottom: 20px;">
-                  To Securely Pay For Your Service Call Please Click The Button Below
+                  Redirecting to secure payment via Razorpay...
                 </p>
-                <a href="https://paypal.me/" target="_blank" class="btn w-100 fw-bold py-3" style="color: #000; font-size: 1rem; background-color: #ffc107;">
+                <a href="https://razorpay.com/" target="_blank" class="btn w-100 fw-bold py-3" style="color: #fff; font-size: 1rem; background-color: #3395ff;">
                   Click Here To Make Payment
                 </a>
               </div>
             </div>
           `;
+          
+          setTimeout(() => {
+            window.location.href = "https://razorpay.com/";
+          }, 3000);
         } else {
           alert('Failed to send. Please try again or call (231) 313-8117.');
         }
