@@ -1,414 +1,221 @@
-/* Accordion Section */
+/* ═══════════════════════════ LUXURY SHOWCASE SECTION ═══════════════════════════ */
 .inventory-accordion-section {
   width: 100vw;
   max-width: 100%;
   padding: 0;
   margin: 0;
   overflow: hidden;
-  position: relative;
   background: #000;
   border-bottom: 4px solid #c99b3b;
 }
 
 .accordion-container {
-  display: flex;
-  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
 
-/* DESKTOP LAYOUT (>= 768px) */
+/* Tablet (2 columns) */
 @media (min-width: 768px) {
   .accordion-container {
-    height: 700px;
-    flex-direction: row;
-    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .accordion-card {
-    width: 25%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    /* Accordion expansion: 350ms */
-    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-    margin: 0;
-    padding: 0;
-    border-radius: 0;
-    overflow: hidden;
-  }
-  
-  .accordion-container.has-active .accordion-card {
-    width: 18%;
-  }
-  
-  .accordion-container.has-active .accordion-card.active {
-    width: 46%;
-  }
-  
-  .card-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    overflow: hidden;
-  }
+}
 
-  .card-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Image zoom: 300ms */
-    transition: transform 0.3s ease;
+/* Desktop (4 columns) */
+@media (min-width: 992px) {
+  .accordion-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.accordion-card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.45s ease;
+}
+
+@media (min-width: 992px) {
+  .accordion-card {
+    height: 850px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: none;
+  }
+  .accordion-card:last-child {
+    border-right: none;
+  }
+}
+
+/* Background Image */
+.card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.45s ease;
+}
+
+/* Gradient Overlay */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.92) 0%,
+    rgba(0,0,0,0.65) 45%,
+    rgba(0,0,0,0.15) 100%
+  );
+  pointer-events: none;
+  transition: all 0.45s ease;
+}
+
+/* Content Container */
+.card-content-wrapper {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 0 32px 60px 32px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.45s ease;
+}
+
+/* Typography & Layout */
+.card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.card-title i {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.card-title span {
+  font-family: var(--font-heading), 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #fff;
+  transition: all 0.45s ease;
+}
+
+/* Feature List */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.detail-list li {
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.detail-list li i {
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* Pricing */
+.detail-price {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.price-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4px;
+}
+
+.price-value {
+  font-size: clamp(32px, 3vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* CTA Button */
+.btn-call-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 56px;
+  background-color: #10233D;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.45s ease;
+}
+
+.btn-call-more i {
+  font-size: 1.1rem;
+}
+
+/* Hover Effects (Desktop & Tablet only) */
+@media (min-width: 768px) {
+  .accordion-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    z-index: 10;
   }
 
   .accordion-card:hover .card-bg img {
     transform: scale(1.05);
   }
 
-  .card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-    transition: background 0.3s ease, height 0.4s ease;
-    pointer-events: none;
-  }
-
   .accordion-card:hover .card-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
-  }
-  
-  .accordion-card.active .card-overlay {
-    height: 100%;
-    background: linear-gradient(to right, transparent 0%, #050505 50%, #050505 100%);
-  }
-  
-  .card-content-wrapper {
-    position: absolute;
-    top: calc(100% - 120px);
-    left: 0;
-    width: 100%;
-    padding: 0 20px;
-    z-index: 2;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: top 0.4s ease, transform 0.4s ease, padding 0.4s ease;
-  }
-  
-  .accordion-card:hover .card-content-wrapper {
-    transform: translateY(-10px);
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.85) 0%,
+      rgba(0,0,0,0.55) 45%,
+      rgba(0,0,0,0.1) 100%
+    );
   }
 
-  .accordion-card.active .card-content-wrapper {
-    top: 50%;
-    transform: translateY(-50%);
-    align-items: flex-start;
-    padding-left: 38%;
-    padding-right: 40px;
+  .accordion-card:hover .card-title span {
+    transform: translateY(-6px);
   }
 
-  .card-header {
-    text-align: center;
-    width: 100%;
+  .accordion-card:hover .btn-call-more {
+    background-color: #1a3355;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
   }
-
-  .card-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0;
-    transition: margin 0.35s ease;
-  }
-  
-  .accordion-card.active .card-title {
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-bottom: 24px;
-    gap: 12px;
-  }
-
-  .accordion-card.active .card-title i {
-    margin-bottom: 0;
-    font-size: 1.8rem;
-  }
-
-  .gold-line {
-    width: 32px;
-    height: 2px;
-    background-color: #c99b3b;
-    margin-top: 16px;
-    transition: width 0.3s ease;
-  }
-  
-  .accordion-card:hover .gold-line {
-    width: 48px;
-  }
-
-  .accordion-card.active .gold-line {
-    display: none;
-  }
-
-  .card-details {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    /* Text fade: 200ms */
-    transition: opacity 0.2s ease, max-height 0.35s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-  }
-  
-  .accordion-card.active .card-details {
-    opacity: 1;
-    max-height: 400px;
-    align-items: flex-start;
-    padding: 0;
-  }
-  
-  /* Button slide up: 300ms */
-  .btn-call-more {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.2s ease, transform 0.3s ease, background 0.3s ease;
-  }
-  
-  .accordion-card.active .btn-call-more {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE LAYOUT (< 768px) */
-@media (max-width: 767.98px) {
-  .inventory-accordion-section {
-    padding: 24px 0;
-  }
-  
-  .accordion-container {
-    flex-direction: column;
-    height: auto;
-    /* 24px spacing between cards */
-    gap: 24px; 
-  }
-  
-  .accordion-card {
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-    background: #1a1a1a;
-  }
-  
-  .card-bg {
-    position: relative;
-    width: 100%;
-    /* Update image height to match screenshot */
-    height: 240px;
-    overflow: hidden;
-    transition: height 0.3s ease;
-  }
-  
-  .accordion-card.active .card-bg {
-    height: 240px;
-  }
-  
-  .card-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
-  }
-  
-  .card-content-wrapper {
-    position: static;
-    color: white;
-    padding: 0;
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    position: relative;
-    height: 116px;
-    margin-top: -116px; /* pull up exactly its height */
-    padding: 16px 24px;
-    z-index: 2;
-    background: transparent;
-    transition: margin-top 0.35s ease, background 0.35s ease;
-  }
-  
-  .accordion-card.active .card-header {
-    margin-top: 0;
-    background: #050505;
-    padding: 16px 24px;
-  }
-  
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  }
-  
-  .accordion-card.active .card-title {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .card-title i {
-    font-size: 1.8rem;
-    margin-bottom: 0;
-  }
-
-  .gold-line {
-    display: none; /* Hide gold line on mobile to keep horizontal layout clean */
-  }
-
-  .mobile-chevron {
-    font-size: 1.5rem;
-    /* Chevron rotates smoothly */
-    transition: transform 0.25s ease;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    margin-bottom: 2px;
-  }
-  
-  .accordion-card.active .mobile-chevron {
-    transform: none;
-  }
-
-  .accordion-card.active .icon-expand {
-    display: none;
-  }
-  
-  .accordion-card.active .icon-collapse {
-    display: block !important;
-  }
-  
-  .card-details {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    /* Accordion opens in 250ms. Height animates smoothly */
-    transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
-    padding: 0 24px;
-    background: #050505;
-    align-items: flex-start;
-  }
-  
-  .accordion-card.active .card-details {
-    max-height: 600px;
-    opacity: 1;
-    padding: 24px;
-  }
-  
-  .detail-price {
-    text-align: left;
-  }
-  
-  .btn-call-more {
-    max-width: 100%;
-    opacity: 1;
-    transform: none;
-    transition: background 0.3s ease;
-  }
-}
-
-/* Shared Details Styles */
-.detail-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .detail-list {
-    max-width: 200px;
-  }
-}
-
-.detail-list li {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255,255,255,0.9);
-}
-
-.detail-list li i {
-  color: var(--color-accent);
-  font-size: 1.1rem;
-}
-
-.detail-price {
-  margin-bottom: 24px;
-  width: 100%;
-}
-
-.price-label {
-  display: block;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
-  font-weight: 700;
-}
-
-.price-value {
-  display: block;
-  font-size: 2rem;
-  font-weight: 800;
-  color: white;
-}
-
-.btn-call-more {
-  background: var(--color-accent);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: var(--radius-md);
-  font-size: 1.05rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  white-space: nowrap;
-}
-
-@media (min-width: 768px) {
-  .btn-call-more {
-    max-width: 250px;
-  }
-}
-
-.btn-call-more:hover {
-  background: var(--color-accent-glow);
-  color: #fff;
 }
